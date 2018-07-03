@@ -1,0 +1,9 @@
+start process:
+login infbjvm533.cn.oracle.com  (10.182.180.32)
+username/passwd :root/oracle
+cd /root/docker
+./start_fisco_docker.sh
+
+kill process :
+docker ps      (check docker  CONTAINER ID )
+dokcer kill CONTAINER ID     

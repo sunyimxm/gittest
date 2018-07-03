@@ -1,0 +1,53 @@
+[opc@sun-bcos1 tool]$ babel-node deploy.js HelloWorld
+deploy.js  ........................Start........................
+Soc File :HelloWorld
+HelloWorld编译成功！
+发送交易成功: 0x4d4ca50a117fb52519fc72de6fb91001fa14caaf219bc8f794b6671b7f3f0a57
+HelloWorld合约地址 0xdf1d758614c7fdec98d5461cbcbb5d6c5ced2668
+HelloWorld deploy success!
+ [WARNING] cns add operation failed , ====> contract => HelloWorld version =>  i     s already exist. you can update it or change its version.
+[opc@sun-bcos1 tool]$ more HelloWorld.sol
+pragma solidity ^0.4.2;
+contract HelloWorld{
+    string name;
+    function HelloWorld(){
+       name="Hi,Welcome!";
+    }
+    function get()constant returns(string){
+        return name;
+    }
+    function set(string n){
+        name=n;
+    }
+}
+[opc@sun-bcos1 tool]$ vi HelloWorld.sol
+[opc@sun-bcos1 tool]$ more HelloWorld.sol
+pragma solidity ^0.4.2;
+contract HelloWorld{
+    string name;
+    function HelloWorld(){
+       name="again, hello";
+    }
+    function get()constant returns(string){
+        return name;
+    }
+    function set(string n){
+        name=n;
+    }
+}
+[opc@sun-bcos1 tool]$ babel-node deploy.js HelloWorld
+deploy.js  ........................Start........................
+Soc File :HelloWorld
+HelloWorld编译成功！
+发送交易成功: 0x099c8ca576d09c73da54ae6d7a5a8a6d4c0e4b3b8abbad5b9821e84e3990f599
+HelloWorld合约地址 0x430a65e7dfd8349c0dd50e98091de9fe6c0e1377
+HelloWorld deploy success!
+ [WARNING] cns add operation failed , ====> contract => HelloWorld version =>  i     s already exist. you can update it or change its version.
+[opc@sun-bcos1 tool]$ babel-node cns_manager.js add HelloWorld
+cns_manager.js  ........................Begin........................
+ [WARNING] cns add operation failed , ====> contract => HelloWorld version =>  i     s already exist. you can update it or change its version.
+[opc@sun-bcos1 tool]$ babel-node cns_manager.js update HelloWorld
+cns_manager.js  ........................Begin........................
+ ====> Are you sure update the cns of the contract ?(Y/N)
+y
+nothing to be done.
